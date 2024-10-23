@@ -1,0 +1,583 @@
+body {
+	/* Sets the list of fonts the site should use. The first one is what should be used the other 3 are "fallbacks" just in case. MS Gothic and Times New Roman are in quotes since they are more than one word */
+	font-family: "MS Gothic", "Times New Roman", Times, serif;
+	
+	/* Licorice (Black) */
+	background: #181010;
+	font-size: 22px;
+	
+	/* Sets distance between lines of text */
+	line-height: 32px;
+	
+	/* Pale Purple (White) */
+	color: #FFEFFF;
+	margin: 0;
+	padding: 16px;
+	
+	/* This makes it so that words are allowed to break should they reach the end of the screen and the important modifier makes it so that this is put above all other things that may effect word-wrap in this css code */
+	word-wrap: break-word !important;
+}
+
+/* Makes it look as though the link using this class can't be clicked, it's a link in the first place for future proofing as I didn't yet know if I was going to have the layout "home->genres->specific genre->book" or "home->specific genre->book." START OF NAV (This is a note for myself mostly so I can eyeball a collection of css rules.)*/
+.books {
+	cursor: default;
+}
+
+a {
+	/* Peach (Orange) */
+	color: #F7B58C;
+	
+	/* I don't like the underlines of links so this removes them */
+	text-decoration: none;
+}
+
+/* The the id in the square brackets with the "^=" basically means that it will apply to any id that starts with drop. */
+.toggle, [id^=drop] {
+	/*Gets rid of all the little check boxes as I want those to be invisible to make the menu look nice */
+	display: none;
+}
+
+#logo {
+	display: block;
+	padding: 0 30px;
+	float: left;
+}
+
+#main-toggle {
+	/* Makes it so the mouse turns into that little pointy hand indicating that you can click on the label that this id is connected to */
+	cursor: pointer;
+	float: right;
+	padding: 28px 20px;
+	position: relative;
+	
+	/* Makes it so you can't double click/drag to select the text */
+	user-select: none;
+}
+
+/* Used to make one of the three little lines commonly seen in most hamburger menus */
+.nav-icon {
+	/* Peach (Orange) */
+	background-color: #F7B58C;
+	display: block;
+	height: 2px;
+	width: 18px; 
+	position: relative;
+}
+
+/* Makes the other two lines for the hamburger menu, problem is that they're on top of each other in the z axis and not in the y axis so that will be resolved in the next two blocks of css code */
+.nav-icon:before, .nav-icon:after {
+	/* Peach (Orange) */
+	background-color: #F7B58C;
+	content: " ";
+	display: block;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+}
+
+/* Fixes the aforementioned problem by adding 5px of empty space and since the is for before part, this pushes the line under the one created with the .nav-icon class */
+.nav-icon:before {
+	top: 5px;
+}
+
+/* Same thing as before but with -5px to push this line in the opposite direction. Alternatively, "bottom: 5px" would produce the same result but I prefer this way since it looks more constant and I only have to add one character when copy and pasting */
+.nav-icon:after {
+	top: -5px;
+}
+
+/* Using after here makes it so I don't have to add clearfix to everything (so, like a lot of this code, it's just here to make my life easier) */
+nav:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+nav ul {
+	float: right;
+	
+	/* Makes it so sub lists don't automatically indent */
+	padding: 0;
+	margin: 0;
+	
+	/* Removes the little bullet points from the unordered list */
+	list-style: none;
+}
+
+nav ul li {
+	margin: 0;
+	
+	/* Makes it so the list items are side by side */
+	float: left;
+	
+	/* Pomp And Power (Purple) */
+	background: #84739C;
+}
+
+nav a {
+	/* Makes it so the entire area of a link can be clicked on instead of just the text. Useful for mobile but also useful in general if you ask me */
+	display: block;
+	padding: 0 20px;
+	font-size: 20px;
+	line-height: 60px;
+	
+	/* Peach (Orange) */
+	color: #F7B58C;
+	
+	/* Removes the underlines */
+	text-decoration: none;
+}
+
+nav {
+	/* Pomp And Power (Purple) */
+	background: #84739C;
+}
+
+/* Affects the submenus of my menu so that it's clear which you are selecting */
+nav ul li ul li:hover {
+	/* Grape (Purple) */
+	background-color: #711894;
+}
+/* Makes the submenus disapear */
+nav ul ul {
+	display: none;
+	position: absolute;
+	top: 75px;
+}
+
+nav ul ul li {
+	width: 200px;
+	float: none;
+	display: list-item;
+	position: relative;
+}
+
+/* Moves the submenu items to so they aren't stacked */
+nav ul ul ul li {
+	position: relative;
+	top:-75px;
+	right: 200px;
+}
+
+/* ">ul" means child a ul that is a (in this case) child of a li. Display:inherit should be self explainitory */
+nav ul li:hover>ul {
+	display: inherit;
+}
+
+/* Adds a little + sign to the menus */
+li>a:after {
+	content: " +";
+}
+
+/* Makes it so the previous rule isn't aplied to menus list items that don't have submenus. */
+li>a:only-child:after {
+	content: "";
+}
+/* END OF NAV */
+
+
+
+/* Hides overflowed content. START OF CAROUSEL */
+.carousel {
+	overflow: hidden;
+	padding: 20px 0 0 0;
+}
+
+.slides {
+	position: relative;
+	
+	/* This is since there's 4 images in the html */
+	width: 500%;
+	margin: 0;
+	left: 0;
+	animation: 20s slides infinite;
+}
+
+.slides img {
+	width: 20%;
+	float: left;
+}
+
+/* Creates sliding animation for the individual slides */
+@keyframes slides {
+	
+	0% {
+		left: 0;
+	}
+	
+	20% {
+		left: 0;
+	}
+	
+	25% {
+		left: -100%;
+	}
+	
+	45% {
+		left: -100%;
+	}
+	
+	50% {
+		left: -200%;
+	}
+	
+	70% {
+		left: -200%;
+	}
+	
+	75% {
+		left: -300%;
+	}
+	
+	95% {
+		left: -300%;
+	}
+	
+	100% {
+		left: -400%;
+	}
+	
+}
+
+/* END OF CAROUSEL */
+
+/* Rounds the corners of whatever uses this */
+.round {
+	border-radius: 6px;
+}
+
+/* Styling for headers START OF TEXT STUFF*/
+h2 {
+	/* Pomp And Power (Purple) */
+	color: #84739C;
+	text-align: center;
+	line-height: 40px;
+}
+
+.h2-alt {
+	/* Peach (Orange) */
+	color: #F7B58C;
+	text-align: center;
+	line-height: 40px;
+}
+
+h1 {
+	/* Pomp And Power (Purple) */
+	color: #84739C;
+	text-align: center;
+	line-height: 50px;
+	padding: 45px 0 0;
+}
+
+/* I know I could do the colours in a class of their own per colour and then have each thing that uses the color have that class but I prefer doing tbis way. Both are slightly annoying but this way is less so if you ask me. I could also have a seperate css file per html but that's even more of a pain and there would be a lot of duplicated code */
+.h1-alt {
+	/* Peach (Orange) */
+	color: #F7B58C;
+	text-align: center;
+	line-height: 50px;
+	padding: 45px 0 0;
+}
+
+h4 {
+	/* Pale Purple (White) */
+	color: #FFEFFF;
+	text-align: center;
+}
+
+p {
+	padding: 0 30px 20px;
+	
+	/* Pale Purple (White) */
+	color: #FFEFFF;
+}
+
+.orange-p {
+	text-align: center;
+	
+	/* Peach (Orange) */
+	background-color: #F7B58C;
+	
+	/* Licorice (Black) */
+	color: #181010;
+	font-size: 25px;
+}
+
+.purple-p {
+	text-align: center;
+	
+	/* Pomp And Power (Purple) */
+	background-color: #84739C;
+	
+	/* Licorice (Black) */
+	color: #181010;
+	font-size: 25px;
+}
+
+.pricing-h4 {
+	padding: 70px 0 0;
+}
+/* END OF TEXT STUFF */
+
+
+
+/* START OF TABLE STUFF */
+table {
+	border-collapse: seperate;
+	margin: 0;
+	width: 100%;
+	border: solid white 1px;
+}
+
+table tr {
+	padding: 10px;
+}
+
+table th {
+	/* Peach (Orange) */
+	background-color: #F7B58C;
+	
+	/* Pomp And Power (Purple) */
+	color: #84739C;
+}
+
+table td {
+	text-align: center;
+	
+	/* Pomp And Power (Purple) */
+	background-color: #84739C;
+	
+	/* Peach (Orange) */
+	color: #F7B58C;
+}
+/* END OF TABLE STUFF */
+
+/* START OF IMAGE TEXT STUFF */
+.text-box img {
+	max-width: 100%;
+	float: left;
+	margin-right: 15px;
+	height: auto;
+}
+
+.text-box-2 img {
+	max-width: 100%;
+	float: right;
+	margin-left: 15px;
+	height: auto;
+}
+
+.text-box p, .text-box-2 p {
+	/* Licorice (Black) */
+	color: #181010;
+	font-size: 24px;
+}
+
+/* Centers button and styles it */
+.text-box button {
+	display: block;
+	margin: 20px auto;
+	
+	/* Pomp And Power (Purple) */
+	background-color: #84739C;
+	
+	/* Peach (Orange) */
+	color: #F7B58C;
+	font-size: 19px;
+	cursor: pointer;
+	
+	/* Licorice (Black) */
+	border: 2px solid #181010;
+}
+
+/* Centers button and styles it */
+.text-box-2 button {
+	display: block;
+	margin: 20px auto;
+	
+	/* Peach (Orange) */
+	background-color: #F7B58C;
+	
+	/* Pomp And Power (Purple) */
+	color: #84739C;
+	font-size: 19px;
+	cursor: pointer;
+	
+	/* Licorice (Black) */
+	border: 2px solid #181010;
+}
+
+/* Flex makes the text move around the image on smaller sceens, very useful */
+.wrapper {
+	margin: 50px auto 30px;
+	width: 80%;
+	display: flex;
+	
+	/* Peach (Orange) */
+	background-color: #F7B58C;
+}
+
+.wrapper-2 {
+	margin: 50px auto 30px;
+	width: 80%;
+	display: flex;
+	
+	/* Pomp And Power (Purple) */
+	background-color: #84739C;
+}
+/* END OF IMAGE TEXT STUFF */
+
+/* START OF GRID STUFF */
+.book {
+	height: 250px;
+	width: 167px;
+	margin: 30px auto;
+	
+	/* Peach (Orange) */
+	border: 3px dotted #F7B58C;
+	border-radius: 15px;
+}
+
+.book-2 {
+	height: 250px;
+	width: 167px;
+	margin: 30px auto;
+	
+	/* Pomp And Power (Purple) */
+	border: 3px dotted #84739C;
+	border-radius: 15px;
+}
+
+/* Styles everything within cards and cards2(this is mostly just to add gaps between the cards themselves */
+.books-grid {
+	
+	padding: 25px;
+	max-width: 1980px;
+	display: grid;
+	gap: 16px;
+}
+
+.books-grid a {
+	text-align: center;
+}
+/* END OF GRID STUFF */
+
+
+/* Styling things within the footer. START OF FOOTER*/
+footer {
+	padding: 20px 45px 0 0;
+	
+}
+
+footer ul {
+	text-align: center;
+	list-style: none;
+}
+
+/* Adding padding to this specific p because it doesn't look centered using text-align, likely due to the use of the copyright character */
+footer p {
+	text-align: center;
+}
+
+footer a {
+	/* Peach (Orange) */
+	color: #F7B58C;
+}
+
+.footer-a-2 {
+	/* Pomp And Power (Purple) */
+	color: #84739C;
+}
+/* END OF FOOTER */
+
+
+
+/* Targets all types of media with a max width of 450px */
+@media all and (max-width: 550px) {
+	
+	nav {
+		margin: 0;
+	}
+	
+	nav ul {
+		float: none;
+	}
+	
+	/* Basically just removes the menu at this screen size and below */
+	.toggle+a, .menu {
+		display: none;
+	}
+	
+	/* Makes the hamburger menu show up */
+	.toggle {
+		display: block;
+		
+		/* Pomp And Power (Purple) */
+		background-color: #84739C;
+		padding: 0 20px;
+		
+		/* Peach (Orange) */
+		color: #F7B58C;
+		font-size: 20px;
+		line-height: 60px;
+		text-decoration: none;
+		border: none;
+	}
+	
+	/* Targets every id that starts with "drop" (once again, for future proofing), is checked and next to a list list. In simple terms, it makes it so that the menu items show up when the hamburger is clicked */
+	[id^=drop]:checked+ul {
+		display: block;
+	}
+	
+	/* Makes the list items actually look nice on smaller devices */
+	nav ul li {
+		display: block;
+		width: 100%;
+	}
+	
+	nav ul ul .toggle, nav ul ul a {
+		padding: 0 40px;
+	}
+	
+	nav ul ul ul a {
+		padding: 0 80px;
+		
+		/* Russian Violet (Purple) */
+		background-color:  #3E0B52;
+	}
+	
+	nav ul li ul li .toggle, nav ul ul a {
+		/* French Violet (Purple) */
+		background-color: #8818B4;
+	}
+	
+	nav ul ul {
+		float: none;
+		position: static;
+		
+		/* Pale Purple (White) */
+		color: #FFEFFF;
+	}
+	
+	nav ul ul li {
+		display: block;
+		width: 100%;
+	}
+	
+	nav ul ul ul li {
+		position: static;
+	}
+	
+	
+}
+
+/* Makes the grid repeat in different ways at these screen sizes */
+@media (min-width: 1176px) {
+	.books-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (min-width: 1617px) {
+	.books-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}

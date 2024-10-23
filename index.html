@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+	
+		<!--
+			Author: JW
+			Last Modified Date: 2024-03-27
+			Filename: index.html
+		-->
+		<meta charset="utf-8" />
+		<title>Books That'll Hook</title>
+		<link rel="stylesheet" href="styles.css">
+		<script src="scripts.js"></script>
+		<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+	
+	</head>
+	
+	<!-- This is a general note, going over some of my design choices not just on this page, but as a whole. I prefer doing things this way just because I find it easier, and it's not like there's a lack of other comments, so this should be fine. First things first, the pallet. I use six colours, although only 5 are seen on bigger screens and I mostly use three. I really like simple colour pallets and I find that, even non-similar things can look good together when tying things together with a set of similar colours. Not only that, but I use an off black and an off (slightly purple) white since I find that the pure whites and blacks look too bright and dark, even looking bad in some cases. Then, for most of the background of the elements and the text, I use a soft purple and orange and then darker purples for the menus to make it clear what is hovered over. I kind of choose them on a whim, but I did make sure that they look good on top of each other, so I could add some nice symmetry in my website layouts without complicating the colour pallet. Speaking of, I decided to go with a nice alternating design across the entire site, for every orange, the next color (within reason) is purple and that goes for between pages. If you visit them in the order they are in the menu, they'll still be alternating and if you don't, the colours and web pages still look good on their own. I also made the scrolling carousel of images quite large since it is the main focus of this website since this is supposed to be a book store. I also think the idea I came up with of having a group of images with different books (either books on this site or books from Amazon depending on the page) to be a good idea, catching the eye but still being small enough to not be distracting. The last thing that I think is worth describing here is that I decided to make the "2 and beyond volumes" and the "buy buttons" link to Amazon because I wanted the buttons to actually work, and after I added links to the other pages on my site in the small books at the bottom on this main page and the genre pages, it only made sense to add links to the other ones. With all that said, I think I'm out of things to say, arrivederci. -->
+	<body>
+	
+		<!-- This entire nav contains the logo (that's the boring part) but many, many nested unordered lists which comprise the beautiful dropdown menus I have created. Everything here should be pretty clear since the heavy lifting is done by the CSS but as a few notes, the "#" in some of the anchor tags is basically a nothing link and I did it this way since for the things that use them, I wasn't quite sure if I wanted them to be links when I first did everything. A second note is that the labels are invisible on bigger screens since they're used for responsive design stuff. The checkboxes are also invisible but on all screens, but that's so there can be clickable things and whatnot without visually looking like checkboxes. It's all the same on every page, so they will not have this comment. -->
+		<nav>
+			
+			<img id="logo" src="images/books.png" alt="Small logo that is a red book stacked atop a blue book">
+				
+			<label for="drop" class="toggle" id="main-toggle"><span class="nav-icon"></span></label>
+			<input type="checkbox" id="drop">
+				
+			<ul class="menu">
+				
+				<li><a href="index.html">Home</a></li>
+					
+				<li>
+					
+					<label for="drop-2" class="toggle">Types Of Books +</label>
+					<a href="#" class="books">Types Of Books</a>
+					<input type="checkbox" id="drop-2">
+						
+					<ul>
+						
+						<li>
+							
+							<label for="drop-3" class="toggle"><a href="manga.html">Manga +</a></label>
+							<a href="manga.html">Manga</a>
+							<input type="checkbox" id="drop-3">
+							<ul>
+								<li><a href="csm.html">Chainsaw Man</a></li>
+								<li><a href="ikkoku.html">Maison Ikkoku</a></li>
+								<li><a href="kaguya.html">Kaguya-sama</a></li>
+							</ul>
+							
+						</li>
+							
+						<li>
+							
+							<label for="drop-3" class="toggle"><a href="light.html">Light Novels +</a></label>
+							<a href="light.html">Light Novels</a>
+							<input type="checkbox" id="drop-3">
+							<ul>
+								<li><a href="toradora.html">Toradora!</a></li>
+								<li><a href="rezero.html">Re:Zero</a></li>
+								<li><a href="shieldhero.html">Shield Hero</a></li>
+							</ul>
+							
+						</li>
+							
+						<li>
+							
+							<label for="drop-3" class="toggle"><a href="graphic.html">Graphic Novels +</a></label>
+							<a href="graphic.html">Graphic Novels</a>
+							<input type="checkbox" id="drop-3">
+							<ul>
+								<li><a href="scott.html">Scott Pilgrim</a></li>
+								<li><a href="amulet.html">Amulet</a></li>
+								<li><a href="bone.html">Bone</a></li>
+							</ul>
+							
+						</li>
+						
+					</ul>
+					
+				</li>
+				
+			</ul>
+			
+		</nav>
+		
+		<h2 class="h2-alt">Welcome To Books That'll Hook</h2>
+		<h4>Your number one online storefront for nerdy, nerdy books</h4>
+		<p class="round purple-p">Take a look at our various different books! In the mood for some romance? Try out Kaguya-sama of Toradora!. Want a bit of heavier reading, both thematically and in terms of word count? Funnily enough, the light novels' section is perfect for you! Or maybe you want something a bit more mystical in nature? Then we'd recommend Amulet or Bone from our graphic novels section. Whatever it is, there's a good chance there's something here for you. These books are perfect as a present for someone you love, a reward for someone you know needs a break or a gift for just for yourself. It's always good to remember, it's best to find a book that'll get you hooked.</p>
+		<!-- This here is a slideshow, carousel, roundabout (what ever you'd like to call it) of images with each div being one little section, slide, whatever. Once again, CSS is the true hero and the place it makes the most sense for me to write a majority of the comments. Some of the images are duplicated because of how the animation works, it goes to the last image, and then it jumps almost immediately to back to the first images so this is so that transition looks much nicer. -->
+		<section class="carousel">
+			
+			<div class="slides">
+			
+				<a href="graphic.html"><img src="images/graphicnovels.png" alt="An image containing the first volumes of the graphic novels Scott Pilgrim, Amulet and Bone over an orange background."></a>
+				<a href="kaguya.html"><img src="images/kaguyabg.png" alt="An image containing the first volume of the manga series Kaguya-sama over an orange background."></a>
+				<a href="light.html"><img src="images/lightnovels.png" alt="An image containing the first volumes of the light novels Shield Hero and Re:Zero over an orange background."></a>
+				<a href="toradora.html"><img src="images/toradorabg.png" alt="An image containing the first volume of the light novel Toradora! over an orange background."></a>
+				<a href="graphic.html"><img src="images/graphicnovels.png" alt="An image containing the first volumes of the graphic novels Scott Pilgrim, Amulet and Bone over an orange background."></a>
+			
+			</div>
+		
+		</section>
+		
+		<h4 class="pricing-h4">Pricing</h4>
+		<p>Our prices just cannot be beat! You may be tempted to just buy, but you'll be even more tempted once you see how low these prices can get! Take a glance at our pricing chart; you'll get some serious deals if you buy in bulk!</p>
+		
+		<table class="round">
+		
+			<tr>
+			
+				<th></th>
+				<th>One Volume</th>
+				<th>Full Set</th>
+			
+			</tr>
+			<tr>
+			
+				<th>Chainsaw Man (15 total volumes)</th>
+				<td>$12.99</td>
+				<td>$169.99</td>
+			
+			</tr>
+			<tr>
+			
+				<th>Maison Ikkoku (15 total volumes)</th>
+				<td>$19.99</td>
+				<td>$259.99</td>
+			
+			</tr>
+			
+			<tr>
+			
+				<th>Kaguya-sama (28 total volumes)</th>
+				<td>$12.99</td>
+				<td>$324.99</td>
+			
+			</tr>
+			
+			<tr>
+			
+				<th>Toradora! (10 total volumes)</th>
+				<td>$14.99</td>
+				<td>$134.99</td>
+			
+			</tr>
+			
+			<tr>
+			
+				<th>Re:Zero (35 total volumes)</th>
+				<td>$14.99</td>
+				<td>$449.99</td>
+			
+			</tr>
+			
+			<tr>
+			
+				<th>Shield Hero (22 total volumes)</th>
+				<td>$14.99</td>
+				<td>$299.99</td>
+			
+			</tr>
+			
+			<tr>
+			
+				<th>Scott Pilgrim (6 total volumes)</th>
+				<td>$16.99</td>
+				<td>$99.99</td>
+			
+			</tr>
+			
+			<tr>
+			
+				<th>Amulet (9 total volumes)</th>
+				<td>$13.99</td>
+				<td>$111.99</td>
+			
+			</tr>
+			
+			<tr>
+			
+				<th>Bone (9 total volumes)</th>
+				<td>$12.99</td>
+				<td>$103.99</td>
+			
+			</tr>
+		
+		</table>
+		
+		<h2>Other Books From This Series</h2>
+		
+		<div class="books-grid">
+		
+			<a href="csm.html"><img src="images/csm.png" alt="Cover for the first volume of the manga series Chainsaw Man." class="book"></a>
+			<a href="toradora.html"><img src="images/toradora.png" alt="Cover for the first volume of the light novel Toradora!." class="book-2"></a>
+			<a href="scott.html"><img src="images/scott.png" alt="Cover for the first volume of the graphic novel Scott Pilgrim." class="book"></a>
+			<a href="kaguya.html"><img src="images/kaguya.png" alt="Cover for the first volume of the manga series Kaguya-sama." class="book-2"></a>
+			<a href="shieldhero.html"><img src="images/shield.png" alt="Cover for the first volume of the light novel Shield Hero." class="book"></a>
+			<a href="bone.html"><img src="images/bone.png" alt="Cover for the first volume of the graphic novel Bone." class="book-2"></a>
+			
+		</div>
+		
+		<footer>
+		
+			<ul>
+				<li><a href="index.html">Back to Home</a></li>
+				<li><a href="manga.html">Back to Manga</a></li>
+				<li><a href="light.html">Back to Light Novels</a></li>
+				<li><a href="graphic.html">Back to Graphic Novels</a></li>
+			</ul>
+			
+			<!-- &copy is the copyright symbol character -->
+			<p>Copyright &copy;2023; Designed by Jeremy. All rights go to their respective owners.</p>
+			<p>Disclaimer: No part of this is a real online storefront, if you have paid money through this website, you have been scammed.</p>
+		
+		</footer>
+	
+	</body>
+
+</html>

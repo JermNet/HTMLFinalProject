@@ -1,1 +1,2 @@
-# HTMLFinalProject
+# What Is This?
+This is my final project for my Website Development course. As a result, it's just HTML and CSS, but this was my first go at a website of a larger scale, and of such a design. I implemented a lot of new things here, and it was one of the biggest stepping stones in my website development path.
